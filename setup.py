@@ -1,14 +1,12 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 setup(
   name = 'database_knotinfo',
   packages = ['database_knotinfo'],
-  version = '0.5',
   license='GPL',
   description = 'Content of the KnotInfo and LinkInfo databases as lists of dictionaries',
   author = 'Sebastian Oehms',
   author_email = 'seb.oehms@gmail.com',
   url = 'https://github.com/soehms/database_knotinfo',
-  download_url = 'https://github.com/soehms/database_knotinfo/archive/pypi-0_5.tar.gz',
   keywords = ['KnotInfo', 'LinkInfo', 'SageMath', 'database'],
   install_requires=[
       ],
@@ -21,5 +19,6 @@ setup(
     # that you indicate whether you support Python 2, Python 3 or both.
     'Programming Language :: Python :: 3',
   ],
-  include_package_data=True
+  use_scm_version=True,
+  setup_requires=['setuptools_scm'],
 )
