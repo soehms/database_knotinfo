@@ -11,7 +11,6 @@ setup(
   download_url = 'https://github.com/soehms/database_knotinfo/archive/pypi-0_3.tar.gz',
   keywords = ['KnotInfo', 'LinkInfo', 'SageMath', 'database'],
   install_requires=[
-          'csv',
       ],
   classifiers=[  # Optional
     # How mature is this project? Common values are
