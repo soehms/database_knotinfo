@@ -8,7 +8,7 @@ setup(
   packages = ['database_knotinfo'],
   package_dir  = {'database_knotinfo': 'database_knotinfo'},
   package_data = {'database_knotinfo': ['cvs_data/knotinfo_data_complete.csv',
-                                        'cvs_data/knotinfo_data_complete.csv'
+                                        'cvs_data/linkinfo_data_complete.csv'
                                        ]},
   license='GPL',
   description = 'Content of the KnotInfo and LinkInfo databases as lists of dictionaries',
@@ -27,6 +27,7 @@ setup(
     # that you indicate whether you support Python 2, Python 3 or both.
     'Programming Language :: Python :: 3',
   ],
+  include_package_data=True,
   #use_scm_version=True,
   use_scm_version={"local_scheme": local_scheme},
   setup_requires=['setuptools_scm'],
