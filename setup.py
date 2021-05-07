@@ -1,15 +1,17 @@
 from setuptools import setup
 
+package_name = 'database_knotinfo'
+
 def local_scheme(version):
     return ""
 
 setup(
-  name = 'database_knotinfo',
-  packages = ['database_knotinfo'],
-  package_dir  = {'database_knotinfo': 'database_knotinfo'},
-  package_data = {'database_knotinfo': ['cvs_data/knotinfo_data_complete.csv',
-                                        'cvs_data/linkinfo_data_complete.csv'
-                                       ]},
+  name = package_name
+  packages = [package_name],
+  package_dir  = {package_name: package_name},
+  package_data = {package_name: ['cvs_data/knotinfo_data_complete.csv',
+                                 'cvs_data/linkinfo_data_complete.csv'
+                                ]},
   license='GPL',
   description = 'Content of the KnotInfo and LinkInfo databases as lists of dictionaries',
   author = 'Sebastian Oehms',

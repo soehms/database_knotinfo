@@ -65,8 +65,8 @@ def link_list(proper_links=False):
         # filename = file_knot
     filename += '.csv'
 
-    path_dirs = __file__.split('/')
-    package_path = path_dirs[len(path_dirs)-2]
+    import database_knotinfo
+    package_path = database_knotinfo.__path__[0]
     csv_path     = os.path.join(package_path, Names.csv_path.value)
 
     link_csv = open(os.path.join(csv_path, filename))
