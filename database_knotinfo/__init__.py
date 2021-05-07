@@ -65,7 +65,11 @@ def link_list(proper_links=False):
         # filename = file_knot
     filename += '.csv'
 
-    link_csv = open(os.path.join(Names.csv_path.value, filename))
+    path_dirs = __file__.split('/')
+    package_path = path_dirs[len(path_dirs)-2]
+    csv_path     = os.path.join(package_path, Names.csv_path.value)
+
+    link_csv = open(os.path.join(csv_path, filename))
     link_dict = csv.DictReader(link_csv, delimiter=Names.delimiter.value)
     link_list = list(link_dict)
     link_csv.close()

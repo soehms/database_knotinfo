@@ -1,4 +1,8 @@
 from setuptools import setup
+
+def local_scheme(version):
+    return ""
+
 setup(
   name = 'database_knotinfo',
   packages = ['database_knotinfo'],
@@ -19,6 +23,7 @@ setup(
     # that you indicate whether you support Python 2, Python 3 or both.
     'Programming Language :: Python :: 3',
   ],
-  use_scm_version=True,
+  #use_scm_version=True,
+  use_scm_version={"local_scheme": local_scheme},
   setup_requires=['setuptools_scm'],
 )

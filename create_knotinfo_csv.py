@@ -62,9 +62,14 @@ path    = None
 
 if len(cmdline_args) > 0:
     path = cmdline_args[0]
+    if not os.path.exists(path):
+        raise ValueError('given path does not exist')
 
 if not path:
-    path = os.environ['PWD']
+    pwd = os.environ['PWD']
+    path = os.path.join(pwd, 'database_knotinfo')
+    if not os.path.exists(path):
+        path = pwd
 
 path_temp = os.path.join(path, 'special_knotinfo_temp_dir')
 path_csv_data = os.path.join(path_temp, Names.csv_path.value)
