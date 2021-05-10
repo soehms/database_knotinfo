@@ -21,7 +21,7 @@ setup(
   license='GPL',
   description = 'Content of the KnotInfo and LinkInfo databases as lists of dictionaries',
   long_description=long_description,
-  long_description_content_type='text/markdown'
+  long_description_content_type='text/markdown',
   author = 'Sebastian Oehms',
   author_email = 'seb.oehms@gmail.com',
   url = 'https://github.com/soehms/database_knotinfo',
