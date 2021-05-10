@@ -1,8 +1,8 @@
 # Database KnotInfo
 
-This repository contains a snapshot of the complete content of the [KnotInfo](https://knotinfo.math.indiana.edu/) and [LinkInfo](https://linkinfo.sitehost.iu.edu/)  databases in `CSV` format (converted from the corresponding Excel spreadsheets).
+This repository contains a snapshot of the complete content of the [KnotInfo](https://knotinfo.math.indiana.edu/) and [LinkInfo](https://linkinfo.sitehost.iu.edu/) databases. It is provided as Python lists of Python dictionaries. These are obtained from the corresponding Excel spreadsheets available on the KnotInfo and LinkInfo hompages on the date of release.
 
-It has been created as a part of the [SageMath](https://www.sagemath.org/) interface to theses databases (see Trac ticket [#30352](https://trac.sagemath.org/ticket/30352))  but can also be used independently.
+The repository has been created as a part of the [SageMath](https://www.sagemath.org/) interface to theses databases (see Trac ticket [#30352](https://trac.sagemath.org/ticket/30352))  but can also be used independently.
 
 In Python code it can be used in den following way:
 
@@ -40,3 +40,26 @@ In Python code it can be used in den following way:
 ```
 
 In order to build a new release, the `CSV` files can be upgraded with the `create_knotinfo_csv.py` script.
+
+## Installation
+
+
+### Python
+
+```
+pip install database_knotinfo
+```
+
+### SageMath
+
+Once ticket #30352 will be released the database can be installed in Sage by:
+
+```
+sage -i database_knotinfo
+```
+
+This will contain integration with the knot and link functionality of Sage. Of course the flat Python functionality is available before by:
+
+```
+sage -pip install database_knotinfo
+```

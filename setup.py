@@ -5,6 +5,12 @@ package_name = 'database_knotinfo'
 def local_scheme(version):
     return ""
 
+from os import path
+this_directory = path.abspath(path.dirname(__file__))
+with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
+
+
 setup(
   name = package_name,
   packages = [package_name],
@@ -14,6 +20,8 @@ setup(
                                 ]},
   license='GPL',
   description = 'Content of the KnotInfo and LinkInfo databases as lists of dictionaries',
+  long_description=long_description,
+  long_description_content_type='text/markdown'
   author = 'Sebastian Oehms',
   author_email = 'seb.oehms@gmail.com',
   url = 'https://github.com/soehms/database_knotinfo',
