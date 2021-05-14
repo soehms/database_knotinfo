@@ -63,3 +63,11 @@ This will contain integration with the knot and link functionality of Sage. Of c
 ```
 sage -pip install database_knotinfo
 ```
+
+## Help
+
+If you note an essential divergence between this repository and the original data please create an issue about that.
+
+## Credits
+
+Many thanks to Chuck Livingston and Allison Moore for making the data available. For further acknowledgments see the correspondig hompages.

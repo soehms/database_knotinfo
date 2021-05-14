@@ -1,4 +1,21 @@
 # -*- coding: utf-8 -*-
+r"""
+Utility to access data from the web-pages `KnotInfo <https://knotinfo.math.indiana.edu/>`__
+and `LinkInfo <https://linkinfo.sitehost.iu.edu/>`__ as Python lists of dictionaries.
+
+Many thanks to Chuck Livingston and Allison Moore for their agreement. For further acknowledgments see the correspondig hompages.
+"""
+
+##############################################################################
+#       Copyright (C) 2021 Sebastian Oehms <seb.oehms@gmail.com>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 2 of the License, or
+# (at your option) any later version.
+#                  http://www.gnu.org/licenses/
+##############################################################################
+
 
 
 import os, csv, enum
