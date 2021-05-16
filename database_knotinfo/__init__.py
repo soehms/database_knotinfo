@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 r"""
-Utility to access data from the web-pages `KnotInfo <https://knotinfo.math.indiana.edu/>`__
-and `LinkInfo <https://linkinfo.sitehost.iu.edu/>`__ as Python lists of dictionaries.
+Utility to access data from the webpages
+`KnotInfo <https://knotinfo.math.indiana.edu/>`__
+and `LinkInfo <https://linkinfo.sitehost.iu.edu/>`__
+as Python lists of dictionaries.
 
-Many thanks to Chuck Livingston and Allison Moore for their agreement. For further acknowledgments see the correspondig hompages.
+Many thanks to Chuck Livingston and Allison Moore for their agreement.
+For further acknowledgments see the corresponding homepages.
 """
 
 ##############################################################################
@@ -16,24 +19,22 @@ Many thanks to Chuck Livingston and Allison Moore for their agreement. For furth
 #                  http://www.gnu.org/licenses/
 ##############################################################################
 
-
-
 import os, csv, enum
 
 class Names(enum.Enum):
     r"""
     Enum for constants which are commonly used in
-    create_knotinfo_csv.py
+    ``create_knotinfo_csv.py``
     """
-    delimiter      = '|'
-    csv_path       = 'csv_data'
-    file_knot      = 'knotinfo_data_complete'
-    file_link      = 'linkinfo_data_complete'
+    delimiter = '|'
+    csv_path = 'csv_data'
+    file_knot = 'knotinfo_data_complete'
+    file_link = 'linkinfo_data_complete'
 
 
 def link_list(proper_links=False):
     r"""
-    Return the KnotInfo and LinkInfo tables as Python dictionary.
+    Return the KnotInfo or LinkInfo table as a list of dictionaries.
 
     INPUT:
 
@@ -72,9 +73,7 @@ def link_list(proper_links=False):
         'L2a1{1}'
         >>> l2['homflypt_polynomial']
         'v/z-v^3/z + v*z'
-
     """
-
     if proper_links:
         filename = Names.file_link.value
     else:
@@ -84,7 +83,7 @@ def link_list(proper_links=False):
 
     import database_knotinfo
     package_path = database_knotinfo.__path__[0]
-    csv_path     = os.path.join(package_path, Names.csv_path.value)
+    csv_path = os.path.join(package_path, Names.csv_path.value)
 
     link_csv = open(os.path.join(csv_path, filename))
     link_dict = csv.DictReader(link_csv, delimiter=Names.delimiter.value)
