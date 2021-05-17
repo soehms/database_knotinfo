@@ -1,12 +1,20 @@
 # Database KnotInfo
 
-This repository contains a snapshot of the complete content of the [KnotInfo](https://knotinfo.math.indiana.edu/) and [LinkInfo](https://linkinfo.sitehost.iu.edu/) databases. It is provided as Python lists of Python dictionaries. These are obtained from the corresponding Excel spreadsheets available on the KnotInfo and LinkInfo hompages on the date of release.
+This repository contains a snapshot of the complete content
+of the [KnotInfo](https://knotinfo.math.indiana.edu/) and
+[LinkInfo](https://linkinfo.sitehost.iu.edu/) databases.
+Each database is provided as a Python list of Python dictionaries.
+The data are from the corresponding Excel spreadsheets available
+on the KnotInfo and LinkInfo homepages on the date of release.
 
-The repository has been created as a part of the [SageMath](https://www.sagemath.org/) interface to theses databases (see Trac ticket [#30352](https://trac.sagemath.org/ticket/30352))  but can also be used independently.
+This repository was created as a part of the
+[SageMath](https://www.sagemath.org/) interface to these databases
+(see Sage Trac ticket [#30352](https://trac.sagemath.org/ticket/30352))
+but can also be used independently.
 
-In Python code it can be used in den following way:
+In Python, it can be used as follows:
 
-```
+```python
 >>> from database_knotinfo import link_list
 >>> k = link_list()
 >>> len(k)
@@ -39,35 +47,38 @@ In Python code it can be used in den following way:
 'v/z-v^3/z + v*z'
 ```
 
-In order to build a new release, the `CSV` files can be upgraded with the `create_knotinfo_csv.py` script.
+To build a new release, the `CSV` files can be upgraded
+with the `create_knotinfo_csv.py` script.
 
 ## Installation
 
-
 ### Python
 
-```
+```bash
 pip install database_knotinfo
 ```
 
 ### SageMath
 
-Once ticket #30352 will be released the database can be installed in Sage by:
+Once ticket #30352 is released, the database can be installed in Sage by:
 
-```
+```bash
 sage -i database_knotinfo
 ```
 
-This will contain integration with the knot and link functionality of Sage. Of course the flat Python functionality is available before by:
+This will contain integration with the knot and link functionality of Sage.
+Of course the flat Python functionality is already available by:
 
-```
+```bash
 sage -pip install database_knotinfo
 ```
 
 ## Help
 
-If you note an essential divergence between this repository and the original data please create an issue about that.
+If you note an essential divergence between this repository
+and the original data please create an issue about that.
 
 ## Credits
 
-Many thanks to Chuck Livingston and Allison Moore for making the data available. For further acknowledgments see the correspondig hompages.
+Many thanks to Chuck Livingston and Allison Moore for making the data
+available. For further acknowledgments see the corresponding homepages.
