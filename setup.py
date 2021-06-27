@@ -31,7 +31,7 @@ setup(
     #   3 - Alpha
     #   4 - Beta
     #   5 - Production/Stable
-    'Development Status :: 4 - Beta',
+    'Development Status :: 5 - Production/Stable',
     # Whether you support Python 2, Python 3 or both.
     'Programming Language :: Python :: 3',
   ],

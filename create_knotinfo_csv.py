@@ -74,11 +74,12 @@ if not path:
         path = pwd
 
 path_temp = os.path.join(path, 'special_knotinfo_temp_dir')
-path_csv_data = os.path.join(path_temp, Names.csv_path.value)
+path_temp_csv_data = os.path.join(path_temp, Names.csv_path.value)
+path_csv_data      = os.path.join(path,      Names.csv_path.value)
 os.makedirs(path_temp)
-os.makedirs(path_csv_data)
+os.makedirs(path_temp_csv_data)
 
-def convert(path_csv_data, url, filename, reader):
+def convert(path_temp_csv_data, url, filename, reader):
     r"""
     Download a data file in xls or xslx format and convert it to csv.
     """
@@ -88,15 +89,10 @@ def convert(path_csv_data, url, filename, reader):
         excel = filename + '.xls'
     csv = filename + '.csv'
     inp = os.path.join(url, excel)
-    out = os.path.join(path_csv_data, csv)
+    out = os.path.join(path_temp_csv_data, csv)
     if reader == Xlsx2csv:
-        from six.moves.urllib.request import urlopen
-        f = urlopen(inp)
-        url_data = f.read()
         temp_file = os.path.join(path_temp, 'temp.xlsx')
-        f = open(temp_file, 'wt')
-        f.write(url_data)
-        f.close()
+        os.system('wget -O %s %s' %(temp_file, inp))
         data = reader(temp_file,
                       delimiter=Names.delimiter.value,
                       skip_empty_lines=True)
@@ -106,15 +102,15 @@ def convert(path_csv_data, url, filename, reader):
         data.to_csv(out, sep=Names.delimiter.value, index=False)
 
 # first KnotInfo (using pandas and xlrd)
-convert(path_csv_data,
+convert(path_temp_csv_data,
         'https://knotinfo.math.indiana.edu/',
         Names.file_knot.value,
         read_excel)
 
 # now LinkInfo (using xlsx2csv)
-convert(path_csv_data,
+convert(path_temp_csv_data,
         'https://linkinfo.sitehost.iu.edu/',
         Names.file_link.value,
         Xlsx2csv)
 
-os.system('mv %s %s; rm -rf %s' % (path_csv_data, path, path_temp))
+os.system('rm -rf %s;mv %s %s; rm -rf %s' % (path_csv_data, path_temp_csv_data, path, path_temp))
