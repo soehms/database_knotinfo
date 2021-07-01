@@ -75,14 +75,15 @@ sage -pip install database_knotinfo
 
 ## Versioning
 
-Version numbers are automatically generated each month if differences to the
+Version numbers are automatically generated every month if differences to the
 original databases are detected. They follow the scheme
-<year of the century>.<month>
+
+\<year of the century\>.\<month\>
 
 ## Help
 
-If you note an essential divergence between this repository
-and the original data please create an issue about that.
+If you note an divergence between this repository and the original data in case
+the the current release is older as a month please create an issue about that.
 
 ## Credits
 
