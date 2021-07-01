@@ -9,15 +9,15 @@ then
     MONTH=$(date +%m)
     YEAR=$(date +%g)
     TAG=$YEAR"."$MONTH
-    COMMIT_MSG="automatic upgrade to version "$TAG" on "$(date)
+    COMMIT_MSG="automatic upgrade to version "$TAG" on "$(date +%F)
     git config user.email "seb.oehms@gmail.com"
     git config user.name "Sebastian Oehms"
-    git tag -a -m "$COMMIT_MSG" $TAG
-    echo "New tag "$TAG" created"
     git commit -m "$COMMIT_MSG" .
     echo "New version "$TAG" commited"
     git push
     echo "New database content pushed to repository"
+    git tag -a -m "$COMMIT_MSG" $TAG
+    echo "New tag "$TAG" created"
     git push --tags
     echo "New version "$TAG" pushed to repository"
 else
