@@ -47,8 +47,10 @@ In Python, it can be used as follows:
 'v/z-v^3/z + v*z'
 ```
 
-To build a new release, the `CSV` files can be upgraded
-with the `create_knotinfo_csv.py` script.
+To build a new release, the `CSV` files can be upgraded with the
+`create_knotinfo_csv.py` script. A [cronjob](https://github.com/soehms/database_knotinfo/blob/main/.github/workflows/check_version_changed.yml)
+executes it on the first day of every month and creates a new
+release if differences are detected.
 
 ## Installation
 
@@ -82,8 +84,8 @@ original databases are detected. They follow the scheme
 
 ## Help
 
-If you note an divergence between this repository and the original data in case
-the the current release is older as a month please create an issue about that.
+If you note a divergence between this repository and the original data in case
+the current release is older than a month please create an issue about that.
 
 ## Credits
 
