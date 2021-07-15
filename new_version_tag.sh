@@ -6,10 +6,12 @@
 GIT_DIFF=`git diff`
 if [ -n "$GIT_DIFF" ]
 then
+    DAY=$(date +%d)
     MONTH=$(date +%m)
     YEAR=$(date +%g)
-    TAG=$YEAR"."$MONTH
+    TAG=$YEAR"."$MONTH"."$DAY
     COMMIT_MSG="automatic upgrade to version "$TAG" on "$(date +%F)
+    echo "value = '"$TAG"'" > database_knotinfo/__version__.py
     git config user.email "seb.oehms@gmail.com"
     git config user.name "Sebastian Oehms"
     git commit -m "$COMMIT_MSG" .

@@ -90,3 +90,16 @@ def link_list(proper_links=False):
     link_list = list(link_dict)
     link_csv.close()
     return link_list
+
+def version():
+    r"""
+    Return the current version of the databases.
+
+    EXAMPLES::
+
+        >>> from database_knotinfo import version
+        >>> version()
+        '21.07.15'
+    """
+    from database_knotinfo import __version__
+    return __version__.value

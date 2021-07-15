@@ -78,7 +78,7 @@ sage -pip install database_knotinfo
 Version numbers are automatically generated every month if differences to the
 original databases are detected. They follow the scheme
 
-\<year of the century\>.\<month\>
+\<year of the century\>.\<month\>.\<day\>
 
 ## Help
 
