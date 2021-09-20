@@ -9,8 +9,8 @@ on the KnotInfo and LinkInfo homepages on the date of release.
 
 This repository was created as a part of the
 [SageMath](https://www.sagemath.org/) interface to these databases
-(see Sage Trac ticket [#30352](https://trac.sagemath.org/ticket/30352))
-but can also be used independently.
+(see the [corresponding section](https://doc.sagemath.org/html/en/reference/knots/sage/knots/knotinfo.html)
+of the SageMath reference manual) but can also be used independently.
 
 In Python, it can be used as follows:
 
@@ -62,17 +62,34 @@ pip install database_knotinfo
 
 ### SageMath
 
-Once ticket #30352 is released, the database can be installed in Sage by:
+Since Release 9.4, the database can be installed in Sage by:
 
 ```bash
 sage -i database_knotinfo
 ```
 
 This will contain integration with the knot and link functionality of Sage.
-Of course the flat Python functionality is already available by:
+Sage 9.4 ships the PyPI release [0.7](https://pypi.org/project/database-knotinfo/0.7/)
+of the database. To use a more recent one you have to execute
 
 ```bash
-sage -pip install database_knotinfo
+sage -package update database_knotinfo <version>
+```
+
+before the installation command above, for example:
+
+```bash
+sage -package update database_knotinfo 2021.9.1
+```
+
+This procedure can be used to upgrade to the next version, as well. But note
+that there is a bug in 9.4 concerning such upgrades which will be fixed in
+SageMath 9.5 (see Trac ticket [#32099](https://trac.sagemath.org/ticket/32099)).
+A workaround for 9.4 can be perfomed in a Sage session as follows:
+
+```
+sage: from sage.databases.knotinfo_db import KnotInfoDataBase
+sage: KnotInfoDataBase().reset_filecache()
 ```
 
 ## Versioning
