@@ -60,6 +60,15 @@ release if differences are detected.
 pip install database_knotinfo
 ```
 
+or
+
+```bash
+pip install database_knotinfo==2021.9.1
+```
+
+if you want to install a former version.
+
+
 ### SageMath
 
 Since Release 9.4, the database can be installed in Sage by:
@@ -91,6 +100,27 @@ A workaround for 9.4 can be perfomed in a Sage session as follows:
 sage: from sage.databases.knotinfo_db import KnotInfoDataBase
 sage: KnotInfoDataBase().reset_filecache()
 ```
+
+If you upgrade to a version of the database which is ahead of the version the
+SageMath release is build on, you should keep in mind, that the examples shown
+in the Sage reference manual may be outdated.
+
+In case the installation via `sage -i` is failing on your system you can try:
+
+```bash
+sage -pip install database_knotinfo
+```
+
+or
+
+```bash
+sage -pip install database_knotinfo==0.7
+```
+
+for the version compatible the the current Sage release.
+
+
+
 
 ## Versioning
 
