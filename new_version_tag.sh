@@ -8,7 +8,7 @@ if [ -n "$GIT_DIFF" ]
 then
     DAY=$(date +%-d)
     MONTH=$(date +%-m)
-    YEAR=$(date +%G)
+    YEAR=$(date +%Y)
     TAG=$YEAR"."$MONTH"."$DAY
     COMMIT_MSG="automatic upgrade to version "$TAG" on "$(date +%F)
     echo "value = '"$TAG"'" > database_knotinfo/__version__.py
