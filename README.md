@@ -119,6 +119,7 @@ sage -pip install database_knotinfo==0.7
 
 for the version compatible the the current Sage release.
 
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/soehms/database_knotinfo)
 
 
 
