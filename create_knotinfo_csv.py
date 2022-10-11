@@ -9,12 +9,11 @@ or LinkInfo webpage have changed.
 
 .. NOTE::
 
-    This function requires the Python packages ``pandas``, ``xlrd`` and
-    ``xlsx2csv``. If necessary, install them by running::
+    This function requires the Python packages ``pandas`` and ``xlrd``. If
+    necessary, install them by running::
 
         pip install pandas
         pip install xlrd
-        pip install xlsx2csv
 
     before using this function.
 
@@ -54,7 +53,6 @@ EXAMPLES::
 ##############################################################################
 
 import sys, os
-from xlsx2csv import Xlsx2csv
 from pandas import read_excel
 from database_knotinfo import Names
 
@@ -79,38 +77,30 @@ path_csv_data      = os.path.join(path,      Names.csv_path.value)
 os.makedirs(path_temp)
 os.makedirs(path_temp_csv_data)
 
-def convert(path_temp_csv_data, url, filename, reader):
+def convert(path_temp_csv_data, url, filename):
     r"""
     Download a data file in xls or xslx format and convert it to csv.
     """
-    if reader == Xlsx2csv:
-        excel = filename + '.xlsx'
-    else:
-        excel = filename + '.xls'
+    excel = filename + '.xls'
     csv = filename + '.csv'
     inp = os.path.join(url, excel)
     out = os.path.join(path_temp_csv_data, csv)
-    if reader == Xlsx2csv:
-        temp_file = os.path.join(path_temp, 'temp.xlsx')
-        os.system('wget -O %s %s' %(temp_file, inp))
-        data = reader(temp_file,
-                      delimiter=Names.delimiter.value,
-                      skip_empty_lines=True)
-        data.convert(out)
-    else:
-        data = reader(inp)
-        data.to_csv(out, sep=Names.delimiter.value, index=False)
+    data = read_excel(inp)
+    data.to_csv(out, sep=Names.delimiter.value, index=False)
+    # remove empty lines
+    with open(out) as fin:
+        lines = [row for row in fin.readlines() if not row.startswith('||||') ]
+    with open(out, 'w') as fout:
+        fout.writelines(lines)
 
 # first KnotInfo (using pandas and xlrd)
 convert(path_temp_csv_data,
         'https://knotinfo.math.indiana.edu/',
-        Names.file_knot.value,
-        read_excel)
+        Names.file_knot.value)
 
-# now LinkInfo (using xlsx2csv)
+# now LinkInfo (using xlsx2csv until July 2022, now read_excel)
 convert(path_temp_csv_data,
         'https://linkinfo.sitehost.iu.edu/',
-        Names.file_link.value,
-        Xlsx2csv)
+        Names.file_link.value)
 
 os.system('rm -rf %s;mv %s %s; rm -rf %s' % (path_csv_data, path_temp_csv_data, path, path_temp))
