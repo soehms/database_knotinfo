@@ -385,7 +385,7 @@ br = L3.braid(); br
 
 
 ```python
-br.burau_matrix()
+brm = br.burau_matrix(); brm
 ```
 
 
@@ -398,7 +398,7 @@ br.burau_matrix()
 
 
 ```python
-_.parent()
+brm.parent()
 ```
 
 
@@ -491,7 +491,7 @@ Lets have a look at some of the examples:
 
 The easiest way to define an interface instance for a special link or knot is to select it as an item of the [KnotInfo class](https://doc.sagemath.org/html/en/reference/knots/sage/knots/knotinfo.html#sage.knots.knotinfo.KnotInfoBase). This can be done by [tab-completion](https://en.wikipedia.org/wiki/Command-line_completion). For example if you type `KnotInfo.L6a4` and than hit the [Tab-key](https://en.wikipedia.org/wiki/Tab_key) you can select a link whose name starts with `L6a4` from a list.
 
-![grafik.png](attachment:grafik.png)
+<p><img src="pictures/tab_completion_link.png" title="tab-completion link" /></p>
 
 
 ```python
@@ -507,7 +507,7 @@ L6 = KnotInfo.L6a4_0_0; L6
 
 The properties of the link can be obtained by the methods of the interface instance. Available methods can be viewed by tab-completion, too:
 
-![grafik.png](attachment:grafik.png)
+<p><img src="pictures/tab_completion_meth.png" title="tab-completion method" /></p>
 
 
 ```python
@@ -544,7 +544,7 @@ To obtain the original string from the table you have to use the keyword `origin
 
 
 ```python
-L6.pd_notation(original=True)
+L6pdo = L6.pd_notation(original=True); L6pdo
 ```
 
 
@@ -556,7 +556,7 @@ L6.pd_notation(original=True)
 
 
 ```python
-type(_)
+type(L6pdo)
 ```
 
 
@@ -649,7 +649,7 @@ L6a1_1.is_alternating()
 
 
 ```python
-L6.braid()
+L6br = L6.braid(); L6br
 ```
 
 
@@ -661,7 +661,7 @@ L6.braid()
 
 
 ```python
-_.parent()
+L6br.parent()
 ```
 
 
@@ -673,7 +673,7 @@ _.parent()
 
 
 ```python
-L6.link()
+l6 = L6.link(); l6
 ```
 
 
@@ -685,7 +685,7 @@ L6.link()
 
 
 ```python
-_.alexander_polynomial()
+l6.alexander_polynomial()
 ```
 
 

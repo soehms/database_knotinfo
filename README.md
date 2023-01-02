@@ -10,7 +10,8 @@ on the KnotInfo and LinkInfo homepages on the date of release.
 This repository was created as a part of the
 [SageMath](https://www.sagemath.org/) interface to these databases
 (see the [corresponding section](https://doc.sagemath.org/html/en/reference/knots/sage/knots/knotinfo.html)
-of the SageMath reference manual) but can also be used independently.
+of the SageMath reference manual or [this tutorial](tutorials/sage_knotinfo_interface_tutorial.ipynb))
+but can also be used independently.
 
 In Python, it can be used as follows:
 

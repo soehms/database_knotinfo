@@ -116,7 +116,7 @@
 # 
 # Links can be constructed using  [pd_code](https://doc.sagemath.org/html/en/reference/knots/sage/knots/link.html#sage.knots.link.Link.pd_code):
 
-# In[2]:
+# In[1]:
 
 
 L3 = Link([[1, 5, 2, 4], [5, 3, 6, 2], [3, 1, 4, 6]])
@@ -125,7 +125,7 @@ L3.plot()
 
 # #### using [braid_notation](https://doc.sagemath.org/html/en/reference/knots/sage/knots/link.html#sage.knots.link.Link.braid):
 
-# In[3]:
+# In[2]:
 
 
 B = BraidGroup(4)
@@ -142,7 +142,7 @@ Lb.plot()
 # 
 # Construction methods for links work for knots, too. For example using the `pd_code`:
 
-# In[4]:
+# In[3]:
 
 
 K3 = Knot([[1, 5, 2, 4], [5, 3, 6, 2], [3, 1, 4, 6]])
@@ -151,13 +151,13 @@ K3 == L3
 
 # As element of a different [parent](https://doc.sagemath.org/html/en/reference/structure/sage/structure/parent.html?highlight=parent#sage.structure.parent.Parent) it differs from the corresponding link, even though they are [isotopic](https://en.wikipedia.org/wiki/Homotopy#Isotopy):
 
-# In[5]:
+# In[4]:
 
 
 sage: L3.is_isotopic(K3)
 
 
-# In[6]:
+# In[5]:
 
 
 K3.parent(), L3.parent()
@@ -165,13 +165,13 @@ K3.parent(), L3.parent()
 
 # #### Some special things only apply to knots:
 
-# In[7]:
+# In[6]:
 
 
 unicode_art(K3)
 
 
-# In[8]:
+# In[7]:
 
 
 unicode_art(L3)
@@ -183,7 +183,7 @@ unicode_art(L3)
 # 
 # In this case a [ValueError](https://docs.python.org/3/library/exceptions.html#ValueError) is raised:
 
-# In[9]:
+# In[8]:
 
 
 try:
@@ -206,31 +206,31 @@ except ValueError as err:
 # 
 # For example:
 
-# In[10]:
+# In[9]:
 
 
 h = L3.homfly_polynomial(); h
 
 
-# In[11]:
+# In[10]:
 
 
 h.parent()
 
 
-# In[12]:
+# In[11]:
 
 
 type(h)
 
 
-# In[13]:
+# In[12]:
 
 
 h == K3.homfly_polynomial()
 
 
-# In[14]:
+# In[13]:
 
 
 h.variables()
@@ -238,25 +238,25 @@ h.variables()
 
 # ##### Other invariants
 
-# In[15]:
+# In[14]:
 
 
 L3.links_gould_polynomial()
 
 
-# In[16]:
+# In[15]:
 
 
 L3.khovanov_polynomial()
 
 
-# In[17]:
+# In[16]:
 
 
 L3.khovanov_polynomial(base_ring=GF(2))
 
 
-# In[18]:
+# In[17]:
 
 
 L3.khovanov_homology()
@@ -264,37 +264,37 @@ L3.khovanov_homology()
 
 # #### Using [braid](https://doc.sagemath.org/html/en/reference/groups/sage/groups/braid.html#sage.groups.braid.Braid) and [braid group](https://doc.sagemath.org/html/en/reference/groups/sage/groups/braid.html#sage.groups.braid.BraidGroup) functionality:
 
-# In[19]:
+# In[18]:
 
 
 br = L3.braid(); br
 
 
+# In[19]:
+
+
+brm = br.burau_matrix(); brm
+
+
 # In[20]:
 
 
-br.burau_matrix()
+brm.parent()
 
 
 # In[21]:
 
 
-_.parent()
+B = br.parent(); B
 
 
 # In[22]:
 
 
-B = br.parent(); B
-
-
-# In[23]:
-
-
 mirr = B.mirror_involution(); mirr
 
 
-# In[24]:
+# In[23]:
 
 
 mirr(br) == br.mirror_image()
@@ -304,7 +304,7 @@ mirr(br) == br.mirror_image()
 # 
 # Internally there is just a small list of Knots from the [Rolfsen Table](https://en.wikipedia.org/wiki/List_of_prime_knots):
 
-# In[25]:
+# In[24]:
 
 
 K10_165 = Knots().from_table(10, 165)
@@ -314,7 +314,7 @@ K10_165.is_isotopic(K10_165m)
 
 # More links can be defined by name if the optional package [SnapPy](https://snappy.math.uic.edu/index.html) is installed:
 
-# In[26]:
+# In[25]:
 
 
 import snappy
@@ -332,9 +332,9 @@ K10_166.is_isotopic(K10_165)
 # 
 # The easiest way to define an interface instance for a special link or knot is to select it as an item of the [KnotInfo class](https://doc.sagemath.org/html/en/reference/knots/sage/knots/knotinfo.html#sage.knots.knotinfo.KnotInfoBase). This can be done by [tab-completion](https://en.wikipedia.org/wiki/Command-line_completion). For example if you type `KnotInfo.L6a4` and than hit the [Tab-key](https://en.wikipedia.org/wiki/Tab_key) you can select a link whose name starts with `L6a4` from a list.
 # 
-# ![grafik.png](attachment:grafik.png)
+# <p><img src="pictures/tab_completion_link.png" title="tab-completion link" /></p>
 
-# In[27]:
+# In[26]:
 
 
 L6 = KnotInfo.L6a4_0_0; L6
@@ -342,9 +342,9 @@ L6 = KnotInfo.L6a4_0_0; L6
 
 # The properties of the link can be obtained by the methods of the interface instance. Available methods can be viewed by tab-completion, too:
 # 
-# ![grafik.png](attachment:grafik.png)
+# <p><img src="pictures/tab_completion_meth.png" title="tab-completion method" /></p>
 
-# In[28]:
+# In[27]:
 
 
 L6pd = L6.pd_notation(); L6pd
@@ -352,7 +352,7 @@ L6pd = L6.pd_notation(); L6pd
 
 # The default behavior of the methods of the `KnotInfo` class is to convert the string from the original table to a Sage or Python object:
 
-# In[29]:
+# In[28]:
 
 
 type(L6pd)
@@ -360,25 +360,25 @@ type(L6pd)
 
 # To obtain the original string from the table you have to use the keyword `original`:
 
+# In[29]:
+
+
+L6pdo = L6.pd_notation(original=True); L6pdo
+
+
 # In[30]:
 
 
-L6.pd_notation(original=True)
+type(L6pdo)
 
 
 # In[31]:
 
 
-type(_)
-
-
-# In[32]:
-
-
 L6.is_knot()
 
 
-# In[33]:
+# In[32]:
 
 
 L6.num_components()
@@ -386,7 +386,7 @@ L6.num_components()
 
 # ### Knots need a prefix `K`
 
-# In[34]:
+# In[33]:
 
 
 K4 = KnotInfo.K4_1
@@ -397,7 +397,7 @@ K4.is_amphicheiral()
 # 
 # Using the [inject method](https://doc.sagemath.org/html/en/reference/knots/sage/knots/knotinfo.html#sage.knots.knotinfo.KnotInfoBase.inject) you may easily declare the interface instance by its name:
 
-# In[35]:
+# In[34]:
 
 
 KnotInfo.K5_1.inject()
@@ -408,7 +408,7 @@ K5_1.dt_notation()
 # 
 # This is possible by using the string of the original name as an argument of the class:
 
-# In[36]:
+# In[35]:
 
 
 KnotInfo('L6a1{1}').inject()
@@ -417,31 +417,31 @@ L6a1_1.is_alternating()
 
 # ### Obtaining Sage (and SnapPy) instances 
 
+# In[36]:
+
+
+L6br = L6.braid(); L6br
+
+
 # In[37]:
 
 
-L6.braid()
+L6br.parent()
 
 
 # In[38]:
 
 
-_.parent()
+l6 = L6.link(); l6
 
 
 # In[39]:
 
 
-L6.link()
+l6.alexander_polynomial()
 
 
 # In[40]:
-
-
-_.alexander_polynomial()
-
-
-# In[41]:
 
 
 l6s = L6.link(snappy=True); l6s
@@ -451,19 +451,19 @@ l6s = L6.link(snappy=True); l6s
 # 
 # KnotInfo and LinkInfo list more than 120 properties (in sum). Not all of them have already conversion methods to Sage. At the moment this holds for about a quarter of them including all polynomial invariants:
 
-# In[42]:
+# In[41]:
 
 
 h6 = L6.homfly_polynomial(); h6
 
 
-# In[43]:
+# In[42]:
 
 
 h6.parent()
 
 
-# In[44]:
+# In[43]:
 
 
 h6 == L6.link().homfly_polynomial(normalization='vz')
@@ -471,7 +471,7 @@ h6 == L6.link().homfly_polynomial(normalization='vz')
 
 # **Everyone is invited to extend the amount of conversions!** But anyway, as a string all properties can be obtained, right now:
 
-# In[45]:
+# In[44]:
 
 
 K4[K4.items.arc_index]
@@ -481,7 +481,7 @@ K4[K4.items.arc_index]
 # 
 # The following examples will launch the corresponding web-pages in your default browser:
 
-# In[46]:
+# In[45]:
 
 
 L6.diagram()
@@ -491,14 +491,14 @@ L6.items.jones_polynomial.description_webpage()
 
 # The following example launches the web-pages of all diagrams of knots with less than 9 crossings and [three genus](https://doc.sagemath.org/html/en/reference/knots/sage/knots/knotinfo.html#sage.knots.knotinfo.KnotInfoBase.three_genus) equal to three: 
 
-# In[47]:
+# In[46]:
 
 
 listg3 = [K for K in KnotInfo if K.is_knot() and K.crossing_number() < 9 and K.three_genus() == 3]
 len(listg3)
 
 
-# In[48]:
+# In[47]:
 
 
 all(K.diagram() for K in listg3)
@@ -506,7 +506,7 @@ all(K.diagram() for K in listg3)
 
 # Now declare all of them:
 
-# In[49]:
+# In[48]:
 
 
 any(K.inject() for K in listg3)
@@ -517,7 +517,7 @@ K7_1.is_alternating() == K8_10.is_alternating()
 # 
 # If you want to identify a link defined in Sage with an isotopic link from the KnotInfo or LinkInfo databases you can use the [get_knotinfo method](https://doc.sagemath.org/html/en/reference/knots/sage/knots/link.html#sage.knots.link.Link.get_knotinfo):
 
-# In[50]:
+# In[49]:
 
 
 L = Link([[3,1,2,4], [8,9,1,7], [5,6,7,3], [4,18,6,5],
@@ -526,7 +526,7 @@ L = Link([[3,1,2,4], [8,9,1,7], [5,6,7,3], [4,18,6,5],
 L.get_knotinfo()
 
 
-# In[51]:
+# In[50]:
 
 
 K10_165.get_knotinfo()
@@ -536,20 +536,20 @@ K10_165.get_knotinfo()
 # 
 # To each interface instance there is a series of knots or links where the instance belongs to. Use the [series method](https://doc.sagemath.org/html/en/reference/knots/sage/knots/knotinfo.html#sage.knots.knotinfo.KnotInfoBase.series) to declare it:
 
-# In[52]:
+# In[51]:
 
 
 L6.series().inject()
 list(L6a)
 
 
-# In[53]:
+# In[52]:
 
 
 L6a[0].inject()
 
 
-# In[54]:
+# In[53]:
 
 
 list(L6a1)
@@ -557,7 +557,7 @@ list(L6a1)
 
 # Another way to define a series is to use the constructor of the corresponding [class](https://doc.sagemath.org/html/en/reference/knots/sage/knots/knotinfo.html#sage.knots.knotinfo.KnotInfoSeries) directly:
 
-# In[55]:
+# In[54]:
 
 
 KnotInfoSeries(10, True, True).inject()
@@ -569,7 +569,7 @@ for i in range(160, 166):
 
 # Note the differences to the naming of SnapPy concerning the [Perko-Pair](https://en.wikipedia.org/wiki/Perko_pair).
 
-# In[56]:
+# In[55]:
 
 
 import snappy
