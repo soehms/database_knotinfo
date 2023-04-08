@@ -7,6 +7,11 @@ Each database is provided as a Python list of Python dictionaries.
 The data are from the corresponding Excel spreadsheets available
 on the KnotInfo and LinkInfo homepages on the date of release.
 
+Please note that the databases contain columns that are not visible on
+the web pages (see also the [Release Notes 2023.04.10](https://github.com/soehms/database_knotinfo/releases/tag/2022.12.1)).
+The validity of the information in such columns cannot be guaranteed.
+Also, there are plans to remove them in the future.
+
 This repository was created as a part of the
 [SageMath](https://www.sagemath.org/) interface to these databases
 (see the [corresponding section](https://doc.sagemath.org/html/en/reference/knots/sage/knots/knotinfo.html)

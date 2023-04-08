@@ -4,9 +4,9 @@
 name: Check version changed
 
 on:
-  #schedule:
-    ## set schedule date
-    #- cron:  '00 22 01 * *'
+  schedule:
+    # set schedule date
+    - cron:  '00 22 01 * *'
   workflow_dispatch:
 
 
