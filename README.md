@@ -8,7 +8,7 @@ The data are from the corresponding Excel spreadsheets available
 on the KnotInfo and LinkInfo homepages on the date of release.
 
 Please note that the databases contain columns that are not visible on
-the web pages (see also the [Release Notes 2023.04.10](https://github.com/soehms/database_knotinfo/releases/tag/2022.12.1)).
+the web pages (see also the [Release Notes 2023.4.8](https://github.com/soehms/database_knotinfo/releases/tag/2022.4.8)).
 The validity of the information in such columns cannot be guaranteed.
 Also, there are plans to remove them in the future.
 
