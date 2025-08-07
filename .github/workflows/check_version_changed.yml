@@ -78,7 +78,7 @@ jobs:
         if: ${{ env.TAG_NAME != '' }}
         uses: actions/setup-python@v1
         with:
-          python-version: 'latest'
+          python-version: '3.12'
 
       - name: Install pypa/build
         if: ${{ env.TAG_NAME != '' }}
