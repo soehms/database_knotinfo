@@ -350,7 +350,7 @@ K10_166.is_isotopic(K10_165m)
 
 ## That's new: Access to the KnotInfo and LinkInfo databases
 
-[KnotInfo website](https://knotinfo.math.indiana.edu/), [LinkInfo website](https://linkinfo.sitehost.iu.edu/)
+[KnotInfo website](https://knotinfo.org/), [LinkInfo website](https://https://link-info-repo.onrender.com/)
 
 
 [Trac-Ticket](https://trac.sagemath.org/ticket/30352)

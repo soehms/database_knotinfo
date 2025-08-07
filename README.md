@@ -1,8 +1,8 @@
 # Database KnotInfo
 
 This repository contains a snapshot of the complete content
-of the [KnotInfo](https://knotinfo.math.indiana.edu/) and
-[LinkInfo](https://linkinfo.sitehost.iu.edu/) databases.
+of the [KnotInfo](https://knotinfo.org/) and
+[LinkInfo](https://https://link-info-repo.onrender.com/) databases.
 Each database is provided as a Python list of Python dictionaries.
 The data are from the corresponding Excel spreadsheets available
 on the KnotInfo and LinkInfo homepages on the date of release.

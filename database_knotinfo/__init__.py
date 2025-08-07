@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 r"""
 Utility to access data from the webpages
-`KnotInfo <https://knotinfo.math.indiana.edu/>`__
-and `LinkInfo <https://linkinfo.sitehost.iu.edu/>`__
+`KnotInfo <https://knotinfo.org/>`__
+and `LinkInfo <https://link-info-repo.onrender.com/>`__
 as Python lists of dictionaries.
 
 Many thanks to Chuck Livingston and Allison Moore for their agreement.

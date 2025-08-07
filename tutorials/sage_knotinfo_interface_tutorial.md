@@ -92,7 +92,7 @@ The command line version can also be used in the terminal of the [Gitpod workspa
 
 ### About
 
-This tutorial is about a [class](https://doc.sagemath.org/html/en/reference/knots/sage/knots/knotinfo.html) from the [SageMath](http://www.sagemath.org/) library which is available since [release 9.4](https://wiki.sagemath.org/ReleaseTours/sage-9.4). It implements an [interface to the databases](https://doc.sagemath.org/html/en/reference/databases/sage/databases/knotinfo_db.html) provided at the web-pages [KnotInfo](https://knotinfo.math.indiana.edu/) and [LinkInfo](https://linkinfo.sitehost.iu.edu/) which contain a classification of [mathematically knots and links](https://en.wikipedia.org/wiki/Knot_(mathematics)).
+This tutorial is about a [class](https://doc.sagemath.org/html/en/reference/knots/sage/knots/knotinfo.html) from the [SageMath](http://www.sagemath.org/) library which is available since [release 9.4](https://wiki.sagemath.org/ReleaseTours/sage-9.4). It implements an [interface to the databases](https://doc.sagemath.org/html/en/reference/databases/sage/databases/knotinfo_db.html) provided at the web-pages [KnotInfo](https://knotinfo.org/) and [LinkInfo](https://link-info-repo.onrender.com/) which contain a classification of [mathematically knots and links](https://en.wikipedia.org/wiki/Knot_(mathematics)).
 
 The tutorial follows a [talk](https://github.com/soehms/database_knotinfo/blob/main/tutorials/introduction_knotinfo.md) held at the LKS-Seminar, University of Regensburg, on 2021/03/18
 

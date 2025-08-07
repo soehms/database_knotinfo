@@ -95,12 +95,12 @@ def convert(path_temp_csv_data, url, filename):
 
 # first KnotInfo (using pandas and xlrd)
 convert(path_temp_csv_data,
-        'https://knotinfo.math.indiana.edu/',
+        'https://knotinfo.org/',
         Names.file_knot.value)
 
 # now LinkInfo (using xlsx2csv until July 2022, now read_excel)
 convert(path_temp_csv_data,
-        'https://linkinfo.sitehost.iu.edu/',
+        'https://link-info-repo.onrender.com/',
         Names.file_link.value)
 
 os.system('rm -rf %s;mv %s %s; rm -rf %s' % (path_csv_data, path_temp_csv_data, path, path_temp))
