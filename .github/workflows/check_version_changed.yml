@@ -74,11 +74,11 @@ jobs:
           prerelease: false
 
       # Create PyPI release
-      - name: Set up Python 3.7
+      - name: Set up Python
         if: ${{ env.TAG_NAME != '' }}
         uses: actions/setup-python@v1
         with:
-          python-version: 3.7
+          python-version: 'latest'
 
       - name: Install pypa/build
         if: ${{ env.TAG_NAME != '' }}
