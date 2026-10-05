@@ -52,7 +52,10 @@ EXAMPLES::
 #                  http://www.gnu.org/licenses/
 ##############################################################################
 
-import sys, os
+import sys, os, io
+
+from zipfile import ZipFile
+from urllib.request import urlopen
 from pandas import read_excel
 from database_knotinfo import Names
 
@@ -71,6 +74,7 @@ if not path:
     if not os.path.exists(path):
         path = pwd
 
+url = 'https://raw.githubusercontent.com/knotinfo-org/assets/main/'
 path_temp = os.path.join(path, 'special_knotinfo_temp_dir')
 path_temp_csv_data = os.path.join(path_temp, Names.csv_path.value)
 path_csv_data      = os.path.join(path,      Names.csv_path.value)
@@ -82,25 +86,26 @@ def convert(path_temp_csv_data, url, filename):
     Download a data file in xls or xslx format and convert it to csv.
     """
     excel = filename + '.xls'
+    excel_zip = excel + '.zip'
     csv = filename + '.csv'
-    inp = os.path.join(url, excel)
+    inp = os.path.join(url, excel_zip)
     out = os.path.join(path_temp_csv_data, csv)
-    data = read_excel(inp)
-    data.to_csv(out, sep=Names.delimiter.value, index=False)
-    # remove empty lines
-    with open(out) as fin:
-        lines = [row for row in fin.readlines() if not row.startswith('||||') ]
-    with open(out, 'w') as fout:
-        fout.writelines(lines)
+    with urlopen(inp) as download:
+        zip_data = download.read()
+        with ZipFile(io.BytesIO(zip_data)) as folder:
+            with folder.open(excel) as unzip:
+                data = read_excel(unzip)
+                data.to_csv(out, sep=Names.delimiter.value, index=False)
+                # remove empty lines
+                with open(out) as fin:
+                    lines = [row for row in fin.readlines() if not row.startswith('||||') ]
+                with open(out, 'w') as fout:
+                    fout.writelines(lines)
 
 # first KnotInfo (using pandas and xlrd)
-convert(path_temp_csv_data,
-        'https://knotinfo.org/',
-        Names.file_knot.value)
+convert(path_temp_csv_data, url, Names.file_knot.value)
 
 # now LinkInfo (using xlsx2csv until July 2022, now read_excel)
-convert(path_temp_csv_data,
-        'https://link-info-repo.onrender.com/',
-        Names.file_link.value)
+convert(path_temp_csv_data, url, Names.file_link.value)
 
 os.system('rm -rf %s;mv %s %s; rm -rf %s' % (path_csv_data, path_temp_csv_data, path, path_temp))
